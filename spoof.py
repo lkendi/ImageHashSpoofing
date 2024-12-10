@@ -2,10 +2,10 @@
 """Main script for image hash spoofing."""
 import sys
 import time
-from spoofing.hash_utils import validate_hex_prefix
-from spoofing.hash_utils import calculate_image_hash, compare_hash_prefix
-from spoofing.image_utils import read_image, modify_image
-from spoofing.image_utils import display_images_side_by_side
+from utils.hash_utils import validate_hex_prefix
+from utils.hash_utils import calculate_image_hash, compare_hash_prefix
+from utils.image_utils import read_image, modify_image
+from utils.image_utils import display_images_side_by_side
 
 
 def update_progress_message(current: int, total: int) -> None:

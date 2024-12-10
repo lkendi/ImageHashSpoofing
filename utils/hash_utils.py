@@ -3,21 +3,28 @@
 import hashlib
 
 
-def validate_hex_prefix(hex_prefix: str) -> None:
+def validate_hex_prefix(hex_prefix: str, max_length: int = 16) -> None:
     """
     Validates if the input string is a proper hexadecimal prefix.
 
     Args:
         hex_prefix (str): Hexadecimal prefix to validate.
+        max_length (int): Maximum allowable length for the hex portion.
 
     Raises:
-        ValueError: If the prefix is not valid.
+        ValueError: If the prefix is not valid or exceeds the maximum length.
     """
     if not hex_prefix.startswith("0x"):
         raise ValueError("Hex prefix must start with '0x'.")
-    if not all(c in "0123456789abcdefABCDEF" for c in hex_prefix[2:]):
-        raise ValueError("Hex prefix must contain only "
-                         "hexadecimal characters.")
+    hex_part = hex_prefix[2:]
+    if not hex_part:
+        raise ValueError("Hex prefix must not be empty after '0x'.")
+    if len(hex_part) > max_length:
+        raise ValueError(
+            f"Hex prefix must not exceed {max_length} characters.")
+    if not all(c in "0123456789abcdefABCDEF" for c in hex_part):
+        raise ValueError(
+            "Hex prefix must contain only hexadecimal characters.")
 
 
 def calculate_image_hash(image_path: str, algorithm: str = "sha256") -> str:

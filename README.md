@@ -80,12 +80,13 @@ Hashing is the process of converting input data into a fixed-length string, know
 - Deterministic Nature: The same input always produces the same hash.
 - Collision Resistance: Difficult to find two inputs that produce the same hash.
 
+
 ---
 
 ## **File Structure**
 
 -   `spoof.py`: Entry point for the tool.
--   `spoofing/`:
+-   `utils/`:
     -   `hash_utils.py`: Handles hash-related functions.
     -   `image_utils.py`: Contains image manipulation functions.
 -   `tests/`: Unit tests for the tool.
