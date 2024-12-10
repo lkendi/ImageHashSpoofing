@@ -52,4 +52,6 @@ def compare_hash_prefix(hash_value: str, hex_prefix: str) -> bool:
     Returns:
         bool: True if hash matches the prefix; False otherwise.
     """
-    return hash_value.startswith(hex_prefix[2:])
+    hash_value = hash_value.strip().lower()
+    hex_prefix = hex_prefix[2:].strip().lower()
+    return hash_value.startswith(hex_prefix)

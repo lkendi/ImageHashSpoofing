@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Module containing image-related utilities."""
 import os
-from PIL import Image, PngImagePlugin, ExifTags
+from PIL import Image, PngImagePlugin
 
 
 def read_image(image_path: str) -> Image.Image:
@@ -28,7 +28,7 @@ def read_image(image_path: str) -> Image.Image:
         raise ValueError(f"Error loading image: {e}")
 
 
-def modify_image(input_path: str, output_path: str,
+def modify_image(image: Image.Image, output_path: str,
                  iteration: int, use_padding=True) -> None:
     """
     Modifies an image by updating metadata and optionally adding padding.
@@ -39,7 +39,6 @@ def modify_image(input_path: str, output_path: str,
         iteration (int): Iteration count for unique modifications.
         use_padding (bool): If True, adds padding to the file.
     """
-    image = read_image(input_path)
     if image.format == "PNG":
         meta = PngImagePlugin.PngInfo()
         meta.add_text("iteration", f"metadata_{iteration}")
