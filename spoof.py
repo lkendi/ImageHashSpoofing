@@ -7,9 +7,11 @@ from spoofing.hash_utils import calculate_image_hash, compare_hash_prefix
 from spoofing.image_utils import read_image, modify_image
 from spoofing.image_utils import display_images_side_by_side
 
+
 def update_progress_message(current: int, total: int) -> None:
     """
-    Prints a simple message showing the current iteration out of total attempts.
+    Prints a simple message showing the current iteration
+    out of total attempts.
 
     Args:
         current (int): The current number of iterations.
@@ -45,7 +47,7 @@ def spoof():
     image = read_image(input_image)
     start_time = time.time()
     print("Starting spoofing process. This may take some time...")
-    
+
     while iteration < max_attempts:
         try:
             modify_image(image, output_image, iteration)
