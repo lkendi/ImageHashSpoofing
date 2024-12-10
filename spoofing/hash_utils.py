@@ -2,6 +2,7 @@
 """Module that contains hashing-related utilities"""
 import hashlib
 
+
 def validate_hex_prefix(hex_prefix: str) -> None:
     """
     Checks if the input string is a valid hexadecimal prefix.
@@ -14,7 +15,8 @@ def validate_hex_prefix(hex_prefix: str) -> None:
     """
     if not hex_prefix.startswith("0x"):
         raise ValueError("Hex prefix must start with '0x'")
-    
+
+
 def calculate_hash(image_path: str) -> str:
     """
     Calculates the SHA-512 hash of an image file.
