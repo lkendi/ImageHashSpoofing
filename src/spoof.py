@@ -2,10 +2,12 @@
 """Main script for image hash spoofing."""
 import sys
 import time
-from utils.hash_utils import validate_hex_prefix
-from utils.hash_utils import calculate_image_hash, compare_hash_prefix
-from utils.image_utils import read_image, modify_image
-from utils.image_utils import display_images_side_by_side
+from src.utils.hash_utils import validate_hex_prefix
+from src.utils.hash_utils import calculate_image_hash, compare_hash_prefix
+from src.utils.image_utils import read_image, modify_image
+from src.utils.image_utils import display_images_side_by_side
+
+MAX_ATTEMPTS = 100000
 
 
 def update_progress_message(current: int, total: int) -> None:
@@ -43,7 +45,7 @@ def spoof():
     hex_prefix, input_image, output_image = sys.argv[1:]
     validate_hex_prefix(hex_prefix)
 
-    iteration, max_attempts = 0, 100000
+    iteration, max_attempts = 0, MAX_ATTEMPTS
     image = read_image(input_image)
     start_time = time.time()
     print("Starting spoofing process. This may take some time...")

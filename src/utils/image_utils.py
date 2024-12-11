@@ -20,10 +20,13 @@ def read_image(image_path: str) -> Image.Image:
     if not os.path.exists(image_path):
         raise ValueError(f"File '{image_path}' does not exist.")
     try:
-        image = Image.open(image_path)
+        with Image.open(image_path) as img:
+            format = img.format
+            image_copy = img.copy()
+            image_copy.format = format
         print(f"Image loaded: {image_path}")
-        print(f"Format: {image.format}, Size: {image.size})")
-        return image
+        print("-----------------------------------------------------------")
+        return image_copy
     except Exception as e:
         raise ValueError(f"Error loading image: {e}")
 
