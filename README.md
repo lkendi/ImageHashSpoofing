@@ -70,15 +70,16 @@ This command modifies the image `original.jpg` until its hash begins with `0x20`
     -   Final hash and processing details.
 
 
-## **File Structure**
+## File Structure
+-   `src/`:
 
--   `spoof.py`: Entry point for the tool.
--   `utils/`:
-    -   `hash_utils.py`: Handles hash-related functions.
-    -   `image_utils.py`: Contains image manipulation functions.
--   `tests/`: Unit tests for the tool.
--   `images/`: Directory for input and output images.
+    -   `spoof.py`: Entry point for the tool.
+    -   `utils/`:
+        -   `hash_utils.py`: Handles hash-related functions.
+        -   `image_utils.py`: Contains image manipulation functions.
+    -   `images/`: Directory for input and output images.
 
+-   `tests/`: Contains unit tests for the tool.
 
 ## **Testing**
 
