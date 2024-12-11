@@ -6,7 +6,7 @@ This tool modifies an image file until its hash begins with a specified hexadeci
 
 ## **Features**
 
--   Supports PNG and JPEG image formats.
+-   Supports PNG and JPEG/JPG image formats.
 -   Ensures output image remains visually identical to the original.
 -   Efficiently computes hashes and modifies image metadata or unused byte space to achieve the desired hash.
 -   Provides side-by-side visualization of the original and modified images.
@@ -69,19 +69,6 @@ This command modifies the image `original.jpg` until its hash begins with `0x20`
     -   The modified image file, with the required hash prefix.
     -   Final hash and processing details.
 
----
-
-
-## **How Hashing Works**
-
-Hashing is the process of converting input data into a fixed-length string, known as the hash value. This tool uses the SHA-256 algorithm by default, a widely used cryptographic hash function known for its:
-
-- Fixed Length Output : 64-character hexstring irrespective of the input size.
-- Deterministic Nature: The same input always produces the same hash.
-- Collision Resistance: Difficult to find two inputs that produce the same hash.
-
-
----
 
 ## **File Structure**
 
@@ -98,12 +85,12 @@ Hashing is the process of converting input data into a fixed-length string, know
 Run the unit tests using:
 
 ```bash
-python \-m unittest discover tests/
+python -m unittest discover tests/
 ```
 
 ___
 
 ## **Acknowledgments**
 
-This tool uses the Python Pillow and hashlib libraries.
-All images were sourced from Pixabay.
+- This tool uses the Python Pillow and hashlib libraries.
+- All images were sourced from [Pixabay](https://pixabay.com/).
