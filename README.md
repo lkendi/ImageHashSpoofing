@@ -8,8 +8,9 @@ This tool modifies an image file until its hash begins with a specified hexadeci
 
 -   Supports PNG and JPEG/JPG image formats.
 -   Ensures output image remains visually identical to the original.
--   Efficiently computes hashes and modifies image metadata or unused byte space to achieve the desired hash.
--   Provides side-by-side visualization of the original and modified images.
+-   Efficiently computes hashes and modifies image metadata to achieve the desired hash.
+-   Displays progress during the modification process for better user experience.
+-   Provides side-by-side visualization of the original and final images.
 
 
 ## **Prerequisites**
@@ -58,8 +59,8 @@ This command modifies the image `original.jpg` until its hash begins with `0x20`
 
 2.  **Image Modification and Hash Calculation**:
 
-    -  After reading the input image, the image is continuously modified.
-    -  Modifications are through changes to metadata fields (e.g., EXIF for JPEG, text chunks for PNG) or by appending padding bytes to ensure that visual integrity is maintained.
+    - After reading the input image, the image is continuously modified.
+    - Modifications are through changes to metadata fields (e.g., EXIF for JPEG, text chunks for PNG) or by appending padding bytes to ensure that visual integrity is maintained.
     - After every iteration of the image modification, the hash of the modified image is calculated.
     - The hash is then checked to confirm whether it starts with the desired prefix.
     - This process stops when the hash begins with the specified prefix or the maximum attempts are reached.
@@ -93,5 +94,5 @@ ___
 
 ## **Acknowledgments**
 
-- This tool uses the Python Pillow and hashlib libraries.
+- This tool uses the Python [Pillow](https://pypi.org/project/pillow/) and [hashlib](https://docs.python.org/3/library/hashlib.html) libraries.
 - All images were sourced from [Pixabay](https://pixabay.com/).
